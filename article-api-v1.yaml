@@ -1,0 +1,65 @@
+openapi: 3.0.3
+info:
+  title: Articles API
+  version: "1.0"
+  description: Demo Restfull API Articles
+  x-logo:
+    url: ""
+servers:
+  - url: https://api.example.io
+paths:
+  /articles:
+    get:
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Article"
+        400:
+          description: Invalid status value
+          content: {}
+      tags: []
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Article"
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Article"
+      tags: []
+    x-last-modified: 1628047947959
+  /articles/{id}:
+    put:
+      tags: []
+    delete:
+      tags: []
+components:
+  securitySchemes: {}
+  schemas:
+    Article:
+      type: object
+      required: []
+      properties:
+        title:
+          type: string
+        desc:
+          type: string
+        content:
+          type: string
+  headers: {}
+  responses: {}
+  parameters: {}
+tags: []
+security: []
